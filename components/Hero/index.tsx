@@ -3,23 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import LeftHero from "./LeftHero/LeftHero";
 import RightHero from "./RightHero/RightHero";
+import OffiersSlides from "./RightHero/OffiersSlides";
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 h-[100vh] overflow-hidden pt-[120px] pb-16 md:pt-[150px] md:pb-[120px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
+        className="relative z-10 overflow-hidden pt-[120px] pb-32 md:pt-[190px] md:pb-[160px] xl:pt-[220px] xl:pb-[200px] 2xl:pt-[250px] 2xl:pb-[200px]"
       >
-        <div className="container lg:pr-0 lg:mr-0  ">
+        <div className="container lg:mr-0 lg:pr-0   ">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div
-                className="wow fadeInUp mx-auto flex gap-10 flex-wrap lg:flex-nowrap text-center"
+                className="wow fadeInUp mx-auto flex flex-wrap gap-10 text-center lg:flex-nowrap"
                 data-wow-delay=".2s"
               >
-                <LeftHero />
-                <div className={`max-w-[60%]`}>
+                <div className="p-[1rem]">
+                  <LeftHero />
+                </div>
+                <div className={`hidden max-w-[60%] xl:block`}>
                   <RightHero />
                 </div>
               </div>
@@ -32,9 +35,12 @@ const Hero = () => {
             alt="logo"
             width={100}
             height={100}
-            className="h-[100vh] w-[100vw] object-cover opacity-60 dark:opacity-50 "
+            className="h-[100vh] w-[100vw]  opacity-60 dark:opacity-50 "
           />
         </div>
+      </section>
+      <section className="container block bg-[#00000033] py-5 xl:hidden">
+        <OffiersSlides cartView={1.5} />
       </section>
     </>
   );

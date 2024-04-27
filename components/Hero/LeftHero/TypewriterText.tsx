@@ -2,7 +2,6 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 
-
 const TypewriterText = ({ textArray }) => {
   return (
     <span dir="rtl" className="text-yellow">
@@ -13,6 +12,7 @@ const TypewriterText = ({ textArray }) => {
         cursor
         cursorStyle="|"
         typeSpeed={300}
+        deleteSpeed={400}
       />
     </span>
   );
