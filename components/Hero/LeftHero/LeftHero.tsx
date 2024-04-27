@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TopText from "./TopText";
+import BtnLinkOffers from "@/components/Common/BtnLinkOffers";
 
 export default function LeftHero() {
   return (
@@ -13,13 +14,7 @@ export default function LeftHero() {
         </h3>
       </div>
       <div className="text-start">
-        <Link href="/offers">
-          <button
-            className={`h-[58px] w-[314px] rounded-2xl bg-yellow text-2xl font-extrabold text-black hover:bg-hoverYellow dark:text-white `}
-          >
-            إحجز الأن
-          </button>
-        </Link>
+        <BtnLinkOffers />
       </div>
     </div>
   );

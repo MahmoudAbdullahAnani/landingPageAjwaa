@@ -39,7 +39,7 @@ const Hero = () => {
           />
         </div>
       </section>
-      <section className="container block bg-[#00000033] py-5 xl:hidden">
+      <section className="container m-0 w-full block bg-[#00000033] py-5 xl:hidden">
         <OffiersSlides cartView={1.5} />
       </section>
     </>

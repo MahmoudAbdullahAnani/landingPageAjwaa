@@ -1,36 +1,111 @@
+"use client";
+import axios from "axios";
+import { useRef, useState } from "react";
+import { toast } from "react-toastify";
+
 const NewsLatterBox = () => {
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [borderName, setBorderName] = useState("117C99");
+  const [borderEmail, setBorderEmail] = useState("117C99");
+
+  const onSubmit = async (e: Event) => {
+    e.preventDefault();
+    if (name.length < 3) {
+      setBorderName("D62121");
+
+      nameRef.current?.focus();
+      return toast.error("Name must be at least 3 characters");
+    }
+    if (email.length < 11) {
+      setBorderEmail("D62121");
+
+      emailRef.current?.focus();
+      return toast.error("Email Not Valid");
+    }
+    // send
+
+    await axios
+      .post(
+        process.env.NEXT_PUBLIC_NODE_MODE === "development"
+          ? `${process.env.NEXT_PUBLIC_API_LOCAL}/sub`
+          : `${process.env.NEXT_PUBLIC_API_PRODUCTION}/sub`,
+        {
+          name,
+          email,
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        setBorderEmail("117C99");
+        setBorderName("117C99");
+        setEmail("");
+        setName("");
+        toast.success(res.data.message);
+      })
+
+      .catch((err) => {
+        setBorderEmail("D62121");
+        setBorderName("D62121");
+        // setErrorGender(err);
+        typeof err.response.data.message !== "string" &&
+          toast.error(err.response.data.message[0]);
+        typeof err.response.data.message === "string" &&
+          toast.error(err.response.data.message);
+        console.log("Sub Msg ===> ", err.response.data.message);
+      });
+  };
+
   return (
     <div
+      dir={"rtl"}
       className="wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10 sm:p-11 lg:p-8 xl:p-11"
       data-wow-delay=".2s"
     >
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
-        Subscribe to receive future updates
+      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white ">
+        {"اشترك لتلقي التحديثات المستقبلية"}
       </h3>
-      <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        Lorem ipsum dolor sited Sed ullam corper consectur adipiscing Mae ornare
-        massa quis lectus.
+      <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25 dark:text-white">
+        {
+          "نقدم كل فترة تحديث جديد خاص بالشركة و الابلكيشن الخاص بنا و بعض الخدمات الاخري في الرحلات  الجويه و الفنادق و السيارات لذلك كن علي علم بكل التحديثات"
+        }
       </p>
       <form>
         <input
           type="text"
           name="name"
-          placeholder="Enter your name"
-          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+          ref={nameRef}
+          value={name}
+          onChange={(e) => {
+            setBorderName("117C99");
+            setName(e.target.value);
+          }}
+          placeholder={"ادخل اسمك"}
+          className={`mb-4 w-full rounded-md border border-[#${borderName}]  py-3 px-6 text-base font-medium text-[#000] placeholder-[#A3A3A3] shadow-one outline-none focus:border-[#2ABDE4] focus-visible:shadow-none  dark:text-white `}
         />
         <input
+          value={email}
+          onChange={(e) => {
+            setBorderEmail("117C99");
+            setEmail(e.target.value);
+          }}
           type="email"
+          ref={emailRef}
           name="email"
-          placeholder="Enter your email"
-          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+          placeholder={"ادخل بريدك الالكتروني"}
+          className={`mb-4 w-full rounded-md border border-[#${borderEmail}] py-3 px-6 text-base font-medium text-[#000] placeholder-[#A3A3A3] shadow-one outline-none focus:border-[#2ABDE4] focus-visible:shadow-none dark:text-white  dark:text-white`}
         />
         <input
           type="submit"
-          value="Subscribe"
-          className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+          value={"أشتراك"}
+          // @ts-ignore
+          onClick={onSubmit}
+          className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#117C99] py-2 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         />
         <p className="text-center text-base font-medium leading-relaxed text-body-color">
-          No spam guaranteed, So please don’t send any spam mail.
+          {"لا نضمن وجود بريد عشوائي، لذا يرجى عدم إرسال أي بريد عشوائي."}
         </p>
       </form>
       <div className="absolute top-0 left-0 z-[-1]">

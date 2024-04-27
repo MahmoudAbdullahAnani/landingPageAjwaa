@@ -152,7 +152,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                   </div>
 
                   <h4
-                    className={`flex h-[56px] items-center justify-center rounded-b-[16px]   text-center text-xl font-extrabold text-black bg-[#ffffff52] backdrop-blur-[10px] dark:text-white`}
+                    className={`flex h-[56px] items-center justify-center rounded-b-[16px]   bg-[#ffffff52] text-center text-xl font-extrabold text-black backdrop-blur-[10px] dark:text-white`}
                   >
                     {name}
                   </h4>
@@ -182,14 +182,14 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                   rx="24"
                   transform="matrix(-1 0 0 1 48.6387 0)"
                   fill="white"
-                  fill-opacity="0.3"
+                  fillOpacity="0.3"
                 />
                 <path
                   d="M22.1041 29.0698L27.1738 24L22.1041 18.9302"
                   stroke="#F7AE1D"
-                  stroke-width="1.68992"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.68992"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </g>
               <defs>
@@ -200,9 +200,9 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                   width="64.8992"
                   height="64.8992"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feGaussianBlur
                     in="BackgroundImageFix"
                     stdDeviation="4.22481"
@@ -237,14 +237,14 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                   rx="24"
                   transform="matrix(-1 0 0 1 48.6387 0)"
                   fill="white"
-                  fill-opacity="0.3"
+                  fillOpacity="0.3"
                 />
                 <path
                   d="M22.1041 29.0698L27.1738 24L22.1041 18.9302"
                   stroke="#F7AE1D"
-                  stroke-width="1.68992"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.68992"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </g>
               <defs>
@@ -255,9 +255,9 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                   width="64.8992"
                   height="64.8992"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feGaussianBlur
                     in="BackgroundImageFix"
                     stdDeviation="4.22481"
