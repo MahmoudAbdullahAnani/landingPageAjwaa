@@ -30,7 +30,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="absolute top-0 z-[-1] bg-black">
-          <Image
+          <img
             src="/images/hero/hero.png"
             alt="logo"
             width={100}
