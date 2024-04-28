@@ -150,7 +150,7 @@ const Contact = () => {
                       type="submit"
                       // @ts-ignore
                       onSubmit={onSubmit}
-                      className="flex items-center justify-center gap-2 rounded-2xl bg-[#117C99] py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+                      className="flex items-center justify-center gap-2 rounded-2xl bg-[#117C99] py-4 px-9 text-2xl font-bold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
                     >
                       <span>
                         <svg

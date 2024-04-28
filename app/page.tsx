@@ -16,6 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import JoinUsNow from "@/components/JoinUsNow";
 import Contact from "@/components/Contact";
 import Customers from "@/components/Customers";
+import Benefits from "@/components/Benefits";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
+      <Benefits />
       <Customers />
       <JoinUsNow />
       <Contact/>

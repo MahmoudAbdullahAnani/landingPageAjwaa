@@ -14,7 +14,15 @@ const listTestimoni = [
   {
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662767/wiuk0p8a8tv6qpwfvcgc.jpg",
+    itemLink: "/",
+    countRating: "200",
+    rating: "4.5",
+  },
+  {
+    name: "المسجد الحرام",
+    image:
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662797/dohmxzucvikkydwkgrk2.jpg",
     itemLink: "/",
     countRating: "200",
     rating: "4.5",
@@ -22,7 +30,7 @@ const listTestimoni = [
   {
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662972/hdpx1mynzl2qxjmtapsc.jpg",
     itemLink: "/",
     countRating: "200",
     rating: "4.5",
@@ -30,7 +38,7 @@ const listTestimoni = [
   {
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712663033/q8eksogrqjsnreszcs6d.jpg",
     itemLink: "/",
     countRating: "200",
     rating: "4.5",
@@ -38,7 +46,7 @@ const listTestimoni = [
   {
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662797/dohmxzucvikkydwkgrk2.jpg",
     itemLink: "/",
     countRating: "200",
     rating: "4.5",
@@ -46,7 +54,7 @@ const listTestimoni = [
   {
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662767/wiuk0p8a8tv6qpwfvcgc.jpg",
     itemLink: "/",
     countRating: "200",
     rating: "4.5",
@@ -54,15 +62,7 @@ const listTestimoni = [
   {
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
-  },
-  {
-    name: "شرم الشيخ",
-    image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662797/dohmxzucvikkydwkgrk2.jpg",
     itemLink: "/",
     countRating: "200",
     rating: "4.5",
@@ -142,7 +142,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                         <span>تقييم </span>
                       </h3>
                     </div>
-                    <Image
+                    <img
                       className={` h-[calc(243px-56px)] w-[424px] rounded-t-[16px] object-fill`}
                       src={image}
                       height={100}
