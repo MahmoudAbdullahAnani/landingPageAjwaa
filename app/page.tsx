@@ -17,6 +17,7 @@ import JoinUsNow from "@/components/JoinUsNow";
 import Contact from "@/components/Contact";
 import Customers from "@/components/Customers";
 import Benefits from "@/components/Benefits";
+import Advantages from "@/components/Advantages";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +26,11 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
+      <Advantages />
       <Benefits />
       <Customers />
       <JoinUsNow />
-      <Contact/>
+      <Contact />
       {/* <Features />
       <Video />
       <Brands />

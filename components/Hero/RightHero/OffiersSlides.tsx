@@ -162,10 +162,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
           )
         )}
       </Slider>
-      <div
-        dir={`ltr`}
-        className=" w-full items-center justify-center flex"
-      >
+      <div dir={`ltr`} className=" flex w-full items-center justify-center">
         <div className="mt-14 flex w-auto flex-none justify-between gap-5">
           <div
             className={`rotate-180 cursor-pointer`}
