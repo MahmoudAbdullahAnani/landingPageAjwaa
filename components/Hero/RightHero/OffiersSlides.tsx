@@ -115,7 +115,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
         {listTestimoni.map(
           ({ name, itemLink, rating, countRating, image }, index) => (
             <div className="flex items-stretch px-3" key={index}>
-              <div className="flex flex-col rounded-[16px]  transition-all">
+              <div className="flex flex-col rounded-[16px] transition-all">
                 <Link
                   href={itemLink}
                   // style={{ boxShadow: "0 4px 20px #000000" }}
@@ -152,7 +152,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
                   </div>
 
                   <h4
-                    className={`flex h-[56px] items-center justify-center rounded-b-[16px]   bg-[#ffffff52] text-center text-xl font-extrabold text-black backdrop-blur-[10px] dark:text-white`}
+                    className={`flex h-[56px] items-center justify-center rounded-b-[16px] bg-[#ffffff52] text-center text-xl font-extrabold text-black backdrop-blur-[10px] dark:bg-[#ffffff52] dark:text-white`}
                   >
                     {name}
                   </h4>
@@ -162,7 +162,10 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
           )
         )}
       </Slider>
-      <div dir={`ltr`} className="flex w-full items-center justify-center">
+      <div
+        dir={`ltr`}
+        className=" w-full items-center justify-center flex"
+      >
         <div className="mt-14 flex w-auto flex-none justify-between gap-5">
           <div
             className={`rotate-180 cursor-pointer`}

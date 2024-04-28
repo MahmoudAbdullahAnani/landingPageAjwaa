@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SingleBenefit({ item }: any) {
   return (
-    <div className={`z-1 relative max-h-[270px] max-w-[200px]`}>
+    <div className={`z-1 relative h-full max-w-[200px]`}>
       <div className={`mx-auto flex flex-col items-center justify-center`}>
         <img
           src={item.image}
