@@ -88,11 +88,22 @@ const Header = () => {
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
-                            className={`flex py-2 text-[18px] font-semibold  group-hover:opacity-70  ${
+                            className={`flex py-2 text-[18px] font-semibold  group-hover:opacity-70 ${
                               pathname === menuItem.path
-                                ? "text-yellow dark:text-yellow"
-                                : "text-white dark:text-white"
-                            } lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
+                            }  ${
+                              pathname === menuItem.path
+                                ? `${
+                                    sticky
+                                      ? "text-primary dark:text-primary"
+                                      : "text-white dark:text-white"
+                                  }`
+                                : `${
+                                    sticky
+                                      ? "text-black dark:text-white"
+                                      : pathname === "/" &&
+                                        "text-white dark:text-white"
+                                  }`
+                            }  lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
                           >
                             {menuItem.title}
                           </Link>
@@ -159,7 +170,9 @@ const Header = () => {
                 </button>
                 <Link
                   href="/signin"
-                  className="hidden py-3 px-7 text-base font-bold text-white hover:opacity-70 dark:text-white md:block"
+                  className={`hidden py-3 px-7 text-base font-bold   ${
+                    sticky ? "" : pathname === "/" ? "text-white" : "text-black"
+                  }  hover:opacity-70 dark:text-white md:block`}
                 >
                   تسجيل دخول
                 </Link>

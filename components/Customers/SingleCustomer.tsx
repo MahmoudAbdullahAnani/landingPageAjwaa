@@ -84,7 +84,7 @@ const SingleCustomer = ({ cartView }: { cartView: number }) => {
                   boxShadow: "0px 4px 20px #00000017",
                   border: "solid 2px #117C99",
                 }}
-                className={`relative h-[200px] w-full rounded-[16px] bg-white shadow-xl dark:bg-[#1D2144] sm:h-[500px]`}
+                className={`relative h-[360px] w-full rounded-[16px] bg-white shadow-xl dark:bg-[#1D2144] sm:h-[500px]`}
               >
                 <h1
                   className={`absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-2xl font-bold text-black dark:text-white`}
@@ -95,14 +95,14 @@ const SingleCustomer = ({ cartView }: { cartView: number }) => {
                   className={`absolute bottom-0 flex w-full items-center justify-center gap-2 border-2 border-x-0 border-b-0 border-[#117C99] py-[22px]`}
                 >
                   <div
-                    className={`flex flex-col items-center justify-center gap-[13px] text-2xl font-bold `}
+                    className={`flex flex-col items-center justify-center gap-[13px] text-lg font-bold lg:text-2xl `}
                   >
                     <h3>{name}</h3>
                     <h4>{email}</h4>
                   </div>
                   <div>
                     <Image
-                      className="h-[84px] w-[84px] rounded-full"
+                      className="h-[64px] rounded-full lg:h-[84px] lg:w-[84px] w-[64px]"
                       src={avatar}
                       width={100}
                       height={100}
