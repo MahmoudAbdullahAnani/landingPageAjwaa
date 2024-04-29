@@ -1,5 +1,6 @@
 import { testimonialData } from "../Testimonials";
 import SingleTestimonial from "../Testimonials/SingleTestimonial";
+import SingleCustomer from "./SingleCustomer";
 
 export default function Customers() {
   return (
@@ -13,15 +14,10 @@ export default function Customers() {
           <h1 className={`text-3xl font-extrabold text-primary `}>
             اراء العملاء
           </h1>
-          <div
-            className={`mt-[80px] flex max-w-[400px] overflow-x-scroll lg:mt-[130px]`}
-          >
-            {/* {testimonialData.map((testimonial) => (
-              <SingleTestimonial
-                key={testimonial.id}
-                testimonial={testimonial}
-              />
-            ))} */}
+          <div className={`mt-[80px] flex w-full justify-center lg:mt-[130px]`}>
+            <div className={`w-full max-w-[612px]`}>
+              <SingleCustomer cartView={1} />
+            </div>
           </div>
         </div>
       </div>
