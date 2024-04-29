@@ -82,7 +82,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
     infinite: true,
     speed: 600,
     slidesToShow: cartView,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
 
     responsive: [
       {
