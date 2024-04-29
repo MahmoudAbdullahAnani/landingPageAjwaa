@@ -120,7 +120,7 @@ export default function ItemsAdvantages({ data }: any) {
                 fill={progress1 !== 0 ? "#005A6C" : "#959595"}
               />
             </svg>
-            <h3
+            <button
               onClick={() => (itemIndex = 0)}
               className={`cursor-pointer text-xl font-bold ${
                 progress1 === 0
@@ -129,7 +129,7 @@ export default function ItemsAdvantages({ data }: any) {
               } sm:text-2xl lg:text-xl xl:text-2xl`}
             >
               {AdvantagesData[0].title}
-            </h3>
+            </button>
           </div>
           {progress1 !== 0 && (
             <>
@@ -170,7 +170,7 @@ export default function ItemsAdvantages({ data }: any) {
                 fill={progress2 !== 0 ? "#005A6C" : "#959595"}
               />
             </svg>
-            <h3
+            <button
               onClick={() => (itemIndex = 1)}
               className={`cursor-pointer text-xl font-bold ${
                 progress2 == 0
@@ -179,7 +179,7 @@ export default function ItemsAdvantages({ data }: any) {
               } sm:text-2xl lg:text-xl xl:text-2xl`}
             >
               {AdvantagesData[1].title}
-            </h3>
+            </button>
           </div>
           {progress2 !== 0 && (
             <>
@@ -220,7 +220,7 @@ export default function ItemsAdvantages({ data }: any) {
                 fill={progress3 !== 0 ? "#005A6C" : "#959595"}
               />
             </svg>
-            <h3
+            <button
               onClick={() => (itemIndex = 2)}
               className={`cursor-pointer text-xl font-bold ${
                 progress3 == 0
@@ -229,7 +229,7 @@ export default function ItemsAdvantages({ data }: any) {
               } sm:text-2xl lg:text-xl xl:text-2xl`}
             >
               {AdvantagesData[2].title}
-            </h3>
+            </button>
           </div>
           {progress3 !== 0 && (
             <>
@@ -270,7 +270,7 @@ export default function ItemsAdvantages({ data }: any) {
                 fill={progress4 !== 0 ? "#005A6C" : "#959595"}
               />
             </svg>
-            <h3
+            <button
               onClick={() => (itemIndex = 3)}
               className={`cursor-pointer text-xl font-bold ${
                 progress4 == 0
@@ -279,7 +279,7 @@ export default function ItemsAdvantages({ data }: any) {
               } sm:text-2xl lg:text-xl xl:text-2xl`}
             >
               {AdvantagesData[3].title}
-            </h3>
+            </button>
           </div>
           {progress4 !== 0 && (
             <>
