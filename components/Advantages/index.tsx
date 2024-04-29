@@ -1,6 +1,6 @@
 export default function Advantages() {
   return (
-    <section className={`pt-16 text-center md:pt-0 `}>
+    <section className={`pt-16 text-center xl:pt-0 `}>
       <div
         className={`relative h-[840px] bg-[url('/images/Advantages/Advantages.png')] bg-cover bg-no-repeat `}
       >
