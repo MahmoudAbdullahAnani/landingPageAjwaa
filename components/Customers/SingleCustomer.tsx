@@ -92,7 +92,7 @@ const SingleCustomer = ({ cartView }: { cartView: number }) => {
                   {comment}
                 </h1>
                 <div
-                  className={`absolute bottom-0 flex w-full items-center justify-center gap-2 border-2 border-x-0 border-b-0 py-[22px]`}
+                  className={`absolute bottom-0 flex w-full items-center justify-center gap-2 border-2 border-x-0 border-b-0 border-[#117C99] py-[22px]`}
                 >
                   <div
                     className={`flex flex-col items-center justify-center gap-[13px] text-2xl font-bold `}
