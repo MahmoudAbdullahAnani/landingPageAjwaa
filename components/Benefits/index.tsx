@@ -27,7 +27,7 @@ export default function Benefits() {
   return (
     // <section className={`pt-16 text-center md:pt-20 lg:pt-28 max-h-[842px]`}>
     <section
-      className={`relative pt-16 text-center md:pt-0  bg-[url('/images/customers/MapImage.png')] bg-cover bg-no-repeat lg:top-[240px] lg:pb-[323px] `}
+      className={`relative text-center   bg-[url('/images/customers/MapImage.png')] bg-cover bg-no-repeat lg:top-[144px] lg:pb-[323px] `}
     >
       <div className={`container flex flex-col items-center justify-around`}>
         <h1 className={`text-3xl font-extrabold text-primary `}>

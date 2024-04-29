@@ -1,6 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import Link from "next/link";
 import LeftHero from "./LeftHero/LeftHero";
 import RightHero from "./RightHero/RightHero";
 import OffiersSlides from "./RightHero/OffiersSlides";
@@ -39,13 +36,14 @@ const Hero = () => {
           />
         </div>
       </section>
+
       <section className="m-0 block w-full bg-[#6b6b6b29] py-5 sm:hidden">
         <div className="">
           <OffiersSlides cartView={1} />
         </div>
       </section>
 
-      <section className="m-0 block w-full bg-[#6b6b6b29] py-5 xl:hidden">
+      <section className="m-0 hidden w-full bg-[#6b6b6b29] py-5 sm:block lg:hidden">
         <div className="">
           <OffiersSlides cartView={2} />
         </div>

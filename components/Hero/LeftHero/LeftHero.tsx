@@ -7,7 +7,9 @@ export default function LeftHero() {
     <div dir="rtl">
       <div className="mb-[72px]">
         <TopText />
-        <h3 className={`mt-[28px] text-start text-xl font-semibold text-white`}>
+        <h3
+          className={`mt-[28px] text-start text-xl font-semibold leading-relaxed text-white`}
+        >
           تقدم أجواء تجربة استخدام مرنة من اجل الإستمتاع بالرحلات الجماعية و
           رحلات السفر لاستقشاف العالم و تقديم سلسلة من الفنادق الرائعة وتوفير
           سبل تنقل مريحة

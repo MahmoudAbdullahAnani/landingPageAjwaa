@@ -6,3 +6,10 @@ export type Testimonial = {
   image: string;
   star: number;
 };
+
+export interface FriendAddingInterface {
+  title: string;
+  paragraph: string;
+  timeView: number;
+  image: string;
+}
