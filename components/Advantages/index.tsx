@@ -34,6 +34,7 @@ export const AdvantagesData = [
       "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662972/hdpx1mynzl2qxjmtapsc.jpg",
   },
 ];
+
 export default function Advantages() {
   return (
     <section className={`pt-16 text-center`}>
