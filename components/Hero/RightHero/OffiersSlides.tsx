@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
-import { OffersHotels } from "@/components/fetching/OffersHotels";
+import { OffersHotels } from "@/fetching/Home";
 // import Stars from "/assets/Icon/stars.svg";
 // import ArrowBack from "/assets/Icon/eva_arrow-back-fill.svg";
 // import ArrowNext from "/assets/Icon/eva_arrow-next-fill.svg";

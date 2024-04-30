@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // import react slick
 import Slider from "react-slick";
 import Image from "next/image";
+import { GetCustomers } from "@/fetching/Home";
 // import Stars from "/assets/Icon/stars.svg";
 // import ArrowBack from "/assets/Icon/eva_arrow-back-fill.svg";
 // import ArrowNext from "/assets/Icon/eva_arrow-next-fill.svg";
@@ -33,6 +34,14 @@ const listTestimoni = [
   },
 ];
 const SingleCustomer = ({ cartView }: { cartView: number }) => {
+  const [data, setListTestimoni] = useState(listTestimoni);
+  useEffect(() => {
+    const fetching = async () => {
+      setListTestimoni(await GetCustomers());
+    };
+
+    fetching();
+  }, []);
   const settings = {
     dots: true,
     customPaging: function (i) {
@@ -76,7 +85,7 @@ const SingleCustomer = ({ cartView }: { cartView: number }) => {
         ref={setSliderRef}
         className="flex items-stretch justify-items-stretch"
       >
-        {listTestimoni.map(({ name, email, avatar, comment }, index) => (
+        {data.map(({ name, email, avatar, comment }, index) => (
           <div className="flex items-stretch px-3" key={index}>
             <div className="flex flex-col rounded-[16px] transition-all">
               <div
@@ -102,7 +111,7 @@ const SingleCustomer = ({ cartView }: { cartView: number }) => {
                   </div>
                   <div>
                     <Image
-                      className="h-[64px] rounded-full lg:h-[84px] lg:w-[84px] w-[64px]"
+                      className="h-[64px] w-[64px] rounded-full lg:h-[84px] lg:w-[84px]"
                       src={avatar}
                       width={100}
                       height={100}
