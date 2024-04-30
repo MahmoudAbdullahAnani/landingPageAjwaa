@@ -7,8 +7,7 @@ export const AdvantagesData = [
 بأفضل الأوقات المرحة, بدلاً من تضيع الوقت لتسجيل بيانات كل
 احد علي حدة الأن بضغطة زر فقط اضف عدد لامحدود من من تحب`,
     timeView: 0,
-    image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1709840409/p2ij52dcubjeanbmsqci.jpg",
+    image: "/images/Advantages/addF.gif",
   },
   {
     title: "مرونة في عملية الدفع",

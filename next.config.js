@@ -11,8 +11,13 @@ const nextConfig = {
         port: "",
         pathname: "/dxrgztsfz/image/upload/**",
       },
+      {
+        protocol: "https",
+        hostname: "s6.ezgif.com",
+        port: "",
+        pathname: "/tmp/**",
+      },
     ],
   },
 };
-
 module.exports = nextConfig;

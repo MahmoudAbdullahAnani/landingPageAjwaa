@@ -1,74 +1,51 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // import react slick
 import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
+import { OffersHotels } from "@/components/fetching/OffersHotels";
 // import Stars from "/assets/Icon/stars.svg";
 // import ArrowBack from "/assets/Icon/eva_arrow-back-fill.svg";
 // import ArrowNext from "/assets/Icon/eva_arrow-next-fill.svg";
 
 const listTestimoni = [
   {
+    _id: "1",
     name: "شرم الشيخ",
     image:
       "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662767/wiuk0p8a8tv6qpwfvcgc.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
+    counters: 200,
+    rating: 4.5,
   },
   {
-    name: "المسجد الحرام",
-    image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662797/dohmxzucvikkydwkgrk2.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
-  },
-  {
-    name: "شرم الشيخ",
-    image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662972/hdpx1mynzl2qxjmtapsc.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
-  },
-  {
-    name: "شرم الشيخ",
-    image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712663033/q8eksogrqjsnreszcs6d.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
-  },
-  {
-    name: "شرم الشيخ",
-    image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662797/dohmxzucvikkydwkgrk2.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
-  },
-  {
+    _id: "2",
     name: "شرم الشيخ",
     image:
       "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662767/wiuk0p8a8tv6qpwfvcgc.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
+    counters: 200,
+    rating: 4.5,
   },
   {
+    _id: "3",
     name: "شرم الشيخ",
     image:
-      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662797/dohmxzucvikkydwkgrk2.jpg",
-    itemLink: "/",
-    countRating: "200",
-    rating: "4.5",
+      "https://res.cloudinary.com/dxrgztsfz/image/upload/v1712662767/wiuk0p8a8tv6qpwfvcgc.jpg",
+    counters: 200,
+    rating: 4.5,
   },
 ];
 const OffiersSlides = ({ cartView }: { cartView: number }) => {
+  const [data, setListTestimoni] = useState(listTestimoni);
+  useEffect(() => {
+    const fetching = async () => {
+      setListTestimoni(await OffersHotels());
+    };
+
+    fetching();
+  }, []);
   const settings = {
     dots: true,
     customPaging: function (i) {
@@ -112,55 +89,53 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
         ref={setSliderRef}
         className="flex items-stretch justify-items-stretch"
       >
-        {listTestimoni.map(
-          ({ name, itemLink, rating, countRating, image }, index) => (
-            <div className="flex items-stretch px-3" key={index}>
-              <div className="flex flex-col rounded-[16px] transition-all">
-                <Link
-                  href={itemLink}
-                  // style={{ boxShadow: "0 4px 20px #000000" }}
-                  className="flex h-[243px] flex-col items-stretch rounded-[16px] lg:w-[424px]"
-                  key={index}
-                >
-                  <div className={`relative `}>
-                    <div
-                      dir="rtl"
-                      className={`absolute top-5 left-0 flex gap-3 px-[29px] text-end text-lg font-semibold text-white `}
-                    >
-                      <h3>
-                        <span
-                          className={`rounded-[5px] bg-[#117C99] p-1 text-center`}
-                        >
-                          {rating}
-                        </span>
-                        {` `}
-                        {+rating > 5 ? "ممتاز" : "جيد"}
-                      </h3>
-                      <h3>
-                        {countRating}
-                        {` `}
-                        <span>تقييم </span>
-                      </h3>
-                    </div>
-                    <img
-                      className={` h-[calc(243px-56px)] w-[424px] rounded-t-[16px] object-fill`}
-                      src={image}
-                      height={100}
-                      width={100}
-                      alt={name}
-                    />
-                  </div>
-
-                  <h4
-                    className={`flex h-[56px] items-center justify-center rounded-b-[16px] bg-[#ffffff52] text-center text-xl font-extrabold text-black backdrop-blur-[10px] dark:bg-[#ffffff52] dark:text-white`}
+        {data.map(({ name, _id, rating, counters, image }, index) => (
+          <div className="flex items-stretch px-3" key={index}>
+            <div className="flex flex-col rounded-[16px] transition-all">
+              <Link
+                href={`/offers-hotels/${_id}`}
+                // style={{ boxShadow: "0 4px 20px #000000" }}
+                className="flex h-[243px] flex-col items-stretch rounded-[16px] lg:w-[424px]"
+                key={index}
+              >
+                <div className={`relative `}>
+                  <div
+                    dir="rtl"
+                    className={`absolute top-5 left-0 flex gap-3 px-[29px] text-end text-lg font-semibold text-white `}
                   >
-                    {name}
-                  </h4>
-                </Link>
-              </div>
+                    <h3>
+                      <span
+                        className={`rounded-[5px] bg-[#117C99] p-1 text-center`}
+                      >
+                        {rating}
+                      </span>
+                      {` `}
+                      {+rating > 5 ? "ممتاز" : "جيد"}
+                    </h3>
+                    <h3>
+                      {counters}
+                      {` `}
+                      <span>تقييم </span>
+                    </h3>
+                  </div>
+                  <img
+                    className={` h-[calc(243px-56px)] w-[424px] rounded-t-[16px] object-fill`}
+                    src={image}
+                    height={100}
+                    width={100}
+                    alt={name}
+                  />
+                </div>
+
+                <h4
+                  className={`flex h-[56px] items-center justify-center rounded-b-[16px] bg-[#ffffff52] text-center text-xl font-extrabold text-black backdrop-blur-[10px] dark:bg-[#ffffff52] dark:text-white`}
+                >
+                  {name}
+                </h4>
+              </Link>
             </div>
-          )
-        )}
+          </div>
+        ))}
       </Slider>
       <div dir={`ltr`} className=" flex w-full items-center justify-center">
         <div className="mt-14 flex w-auto flex-none justify-between gap-5">
