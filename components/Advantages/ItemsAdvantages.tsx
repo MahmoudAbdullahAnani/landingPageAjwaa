@@ -53,7 +53,7 @@ export default function ItemsAdvantages({ data }: any) {
           return Math.min(oldProgress + diff, 100);
         });
       }
-    },500);
+    }, 500);
     const timer3 = setInterval(() => {
       if (viewParagraph) {
         setProgress3((oldProgress) => {
@@ -300,10 +300,16 @@ export default function ItemsAdvantages({ data }: any) {
             </>
           )}
         </li>
-          </div>
-          <div className={`mt-[20px] lg:mt-[200px] w-full lg:w-auto`}>
-              <Image className={`w-full h-full md:max-h-[600px] max-h-[300px] max-w-[816px]`} src={AdvantagesData[itemIndex].image} width={400} height={400} alt={AdvantagesData[itemIndex].title}/>
-          </div>
+      </div>
+      <div className={`mt-[20px] w-full lg:mt-[200px] lg:w-auto`}>
+        <Image
+          className={`h-full max-h-[300px] w-full max-w-[816px] md:max-h-[600px]`}
+          src={AdvantagesData[itemIndex].image}
+          width={400}
+          height={400}
+          alt={AdvantagesData[itemIndex].title}
+        />
+      </div>
     </>
   );
 }

@@ -48,7 +48,7 @@ export default function Advantages() {
             بعض مزايا أجواء
           </h1>
           <ul
-            className={`mt-[20px] flex w-full flex-row-reverse flex-wrap justify-between gap-[20px] lg:mt-[35px]`}
+            className={`mt-[20px] flex w-full flex-row-reverse flex-wrap justify-between gap-[20px] lg:mt-[35px] xl:flex-nowrap`}
           >
             <ItemsAdvantages data={AdvantagesData} />
           </ul>
