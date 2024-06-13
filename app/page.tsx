@@ -19,11 +19,15 @@ import Customers from "@/components/Customers";
 import Benefits from "@/components/Benefits";
 import Advantages from "@/components/Advantages";
 
+export const metadata = {
+  title: "Ajwaa || أجواء",
+};
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <>
+
       <ScrollUp />
       <Hero />
       <Advantages />
