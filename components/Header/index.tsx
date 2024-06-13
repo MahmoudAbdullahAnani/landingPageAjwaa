@@ -99,7 +99,9 @@ const Header = () => {
                               pathname === menuItem.path
                                 ? `${
                                     sticky
-                                      ? "text-yellow" //  الاساسي  عند  الاسكرول
+                                      ? "text-primary dark:text-primary" //  الاساسي  عند  الاسكرول
+                                      : pathname === "/"
+                                      ? "text-white dark:text-white"
                                       : "text-primary dark:text-primary" //  الاساسي  عند عدم الاسكرول
                                   }`
                                 : `${
