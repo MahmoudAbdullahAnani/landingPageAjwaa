@@ -64,9 +64,20 @@ function SigninForm() {
           !response.data?.data.verificationAccountCode ||
           response.data?.data.verificationAccountCode !== "done"
         ) {
-          return toast.error("عليك تأكيد الحساب ", {
-            position: "top-right",
+          router.replace('/signup')
+          toast.error("عليك تأكيد الحساب ", {
+            position: "bottom-right",
             autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          return toast.error("اعد عملية التسجيل مرة اخري لكي يصلك كود التأكيد", {
+            position: "bottom-right",
+            autoClose: 8000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
