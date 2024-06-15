@@ -7,6 +7,7 @@ import { holdSignIn } from "@/public/MainSVGs";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 // Schema Login
 const LoginSchema = z.object({
   email: z.string().email({ message: "البريد الالكتروني غير صحيح" }),
@@ -171,12 +172,12 @@ function SigninForm() {
           </label>
         </div>
         <div>
-          <a
-            href="#0"
+          <Link
+            href={"/Auth/resetPassword"}
             className="text-sm font-medium text-primary hover:underline"
           >
             نسيت كلمة السر؟
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mb-6">
