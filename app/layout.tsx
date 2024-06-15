@@ -1,21 +1,23 @@
 "use client";
 
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 // import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
-import {usePathname} from "next/navigation";
-
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <html suppressHydrationWarning lang="en">
@@ -28,11 +30,11 @@ const pathname = usePathname()
         <ToastContainer position="bottom-right" />
 
         <Providers>
-            {/*{pages.includes(pathname)&&<Header />}*/}
-            <Header />
+          {/*{pages.includes(pathname)&&<Header />}*/}
+          <Header />
           {children}
-            {/*{pages.includes(pathname)&&<Footer />}*/}
-            <Footer />
+          {/*{pages.includes(pathname)&&<Footer />}*/}
+          <Footer />
           <ScrollToTop />
         </Providers>
       </body>

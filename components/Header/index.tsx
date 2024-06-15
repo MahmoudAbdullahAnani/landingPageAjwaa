@@ -8,6 +8,15 @@ import { usePathname } from "next/navigation";
 import { Menu } from "@/types/menu";
 import { PagesRoutes } from "../Common/ScrollUp";
 
+function handleLogout() {
+  localStorage.removeItem("userData");
+  localStorage.removeItem("userIdDB");
+  sessionStorage.removeItem("userData");
+  sessionStorage.removeItem("userIdDB");
+  window.location.reload();
+  return;
+}
+
 const Header = () => {
   const pathname = usePathname();
   // Navbar toggle
@@ -15,6 +24,9 @@ const Header = () => {
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+  // User Data
+  const [userLogin, setUserLogIn] = useState(false);
 
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
@@ -27,6 +39,7 @@ const Header = () => {
   };
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
+    // localStorage.getItem('userData')? :
   });
 
   // submenu handler
@@ -178,20 +191,77 @@ const Header = () => {
                     }`}
                   />
                 </button>
-                <Link
-                  href="/signin"
-                  className={`hidden px-7 py-3 text-base font-bold   ${
-                    sticky ? "" : pathname === "/" ? "text-white" : "text-black"
-                  }  hover:opacity-70 dark:text-white md:block`}
-                >
-                  تسجيل دخول
-                </Link>
-                <Link
-                  href="/signup"
-                  className="ease-in-up hidden rounded-md bg-yellow px-8 py-3 text-base font-bold text-black transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  تسجيل
-                </Link>
+                {localStorage.getItem("userData") ||
+                sessionStorage.getItem("userData") ? (
+                  <>
+                    <h3 className={`text-white `}>
+                      {
+                        JSON.parse(localStorage.getItem("userData") as string)
+                          ?.firstName
+                      }
+                      {
+                        JSON.parse(sessionStorage.getItem("userData") as string)
+                          ?.firstName
+                      }
+                      {` `}
+                      {
+                        JSON.parse(localStorage.getItem("userData") as string)
+                          ?.lastName
+                      }
+                      {
+                        JSON.parse(sessionStorage.getItem("userData") as string)
+                          ?.lastName
+                      }
+                    </h3>
+                    {JSON.parse(
+                      localStorage.getItem("userData") ||
+                        (sessionStorage.getItem("userData") as string)
+                    )?.avatar && (
+                      <Image
+                        src={`https://${
+                          JSON.parse(
+                            localStorage.getItem("userData") as string
+                          )?.avatar.split("//")[1] || ""
+                        }${
+                          JSON.parse(
+                            sessionStorage.getItem("userData") as string
+                          )?.avatar.split("//")[1] || ""
+                        }`}
+                        width={100}
+                        height={100}
+                        alt="profile"
+                        className={`rounded-full w-[48px] h-[48px] ms-2`}
+                      />
+                    )}
+                    <button
+                      className={`text-white mx-2 bg-[#952525] px-3 py-2 rounded-md hover:bg-[#952525a7]`}
+                      onClick={handleLogout}
+                    >
+                      تسجيل خروج
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/signin"
+                      className={`hidden px-7 py-3 text-base font-bold   ${
+                        sticky
+                          ? ""
+                          : pathname === "/"
+                          ? "text-white"
+                          : "text-black"
+                      }  hover:opacity-70 dark:text-white md:block`}
+                    >
+                      تسجيل دخول
+                    </Link>
+                    <Link
+                      href="/signup"
+                      className="ease-in-up hidden rounded-md bg-yellow px-8 py-3 text-base font-bold text-black transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
+                    >
+                      تسجيل
+                    </Link>
+                  </>
+                )}
                 <div>
                   <ThemeToggler />
                 </div>
