@@ -7,6 +7,11 @@ export const metadata = {
 };
 
 const SigninPage = () => {
+  const handleGoogleLogin = (e: any) => {
+    // تنفيذ عملية تسجيل الدخول باستخدام جوجل هنا
+    console.log("Google login clicked");
+  };
+
   return (
     <>
       <section

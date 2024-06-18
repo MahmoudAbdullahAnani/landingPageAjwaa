@@ -9,11 +9,13 @@ import { Menu } from "@/types/menu";
 import { PagesRoutes } from "../Common/ScrollUp";
 
 function handleLogout() {
-  window.localStorage.removeItem("userData");
-  window.localStorage.removeItem("userIdDB");
-  window.sessionStorage.removeItem("userData");
-  window.sessionStorage.removeItem("userIdDB");
-  window.location.reload();
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem("userData");
+    window.localStorage.removeItem("userIdDB");
+    window.sessionStorage.removeItem("userData");
+    window.sessionStorage.removeItem("userIdDB");
+    window.location.reload();
+  }
   return;
 }
 
@@ -38,7 +40,9 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyNavbar);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleStickyNavbar);
+    }
     // window.localStorage.getItem('userData')? :
   });
 
@@ -51,9 +55,9 @@ const Header = () => {
       setOpenIndex(index);
     }
   };
-
-  // @ts-ignore
-  // @ts-ignore
+  if (typeof window === "undefined") {
+    return null;
+  }
   // @ts-ignore
   return (
     <>
