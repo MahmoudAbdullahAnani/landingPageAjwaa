@@ -26,7 +26,7 @@ const updatePasswordSchema = z
   })
   .refine(({ password, confirmPassword }) => password === confirmPassword, {
     message: "كلمات المرور غير متطابقة",
-    path: ["confirmPassword"], // path of error
+    path: ["confirmPassword"],
   });
 
 type Inputs = {
@@ -56,7 +56,6 @@ function FormUpdatePassword() {
   const onSubmit: SubmitHandler<Inputs> = async ({
     password,
     confirmPassword,
-    
   }: Inputs) => {
     setIncorrectData("");
     // 1) axios post req on /updatePassword
@@ -68,7 +67,7 @@ function FormUpdatePassword() {
         {
           password,
           confirmPassword,
-          email
+          email,
         }
       )
       .then((res) => {
@@ -76,7 +75,7 @@ function FormUpdatePassword() {
         // console.log(res);
         // console.log("====================================");
         if (res.data._id.length > 0) {
-          toast.success('تم تغيير كلمة المرور', {
+          toast.success("تم تغيير كلمة المرور", {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
