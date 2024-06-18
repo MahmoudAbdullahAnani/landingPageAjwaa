@@ -28,7 +28,7 @@ function FormRestPassword() {
     mode: "onChange",
   });
 
-  const [IncorrectData, setIncorrectData] = useState([]);
+  const [IncorrectData, setIncorrectData] = useState([""]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     email,
@@ -48,16 +48,34 @@ function FormRestPassword() {
         }
       )
       .then((res: any) => {
-        console.log("====================================");
-        console.log(res);
-        console.log("====================================");
+        // console.log("====================================");
+        // console.log(res.data.message);
+        // console.log("====================================");
+        if (res.data.status === "success") {
+          toast.success(res.data.message, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          return setTimeout(() => {
+            router.replace("/Auth/verifyPassword");
+          }, 1000);
+        }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
+        if (err.response.data.statusCode === 404) {
+          return setIncorrectData([err.response.data.error as string]);
+        }
       });
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className={`max-w-lg mx-auto`} onSubmit={handleSubmit(onSubmit)}>
       <ul className={`text-[#f07178]`}>
         {IncorrectData.map((item, index) => (
           <li key={`${index}-${Math.random()}`}>{item}</li>
@@ -85,7 +103,9 @@ function FormRestPassword() {
       <div className="mb-6">
         <button
           disabled={isSubmitting}
-          className="flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+          className={`flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out  hover:shadow-signUp ${
+            isSubmitting ? "bg-opacity-5" : "hover:bg-opacity-80"
+          }`}
         >
           ارسال كود التغيير
         </button>

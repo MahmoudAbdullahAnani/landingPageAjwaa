@@ -1,5 +1,4 @@
 "use client";
-
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -10,15 +9,12 @@ import ScrollToTop from "@/components/ScrollToTop";
 // import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
-import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-
   return (
     <html suppressHydrationWarning lang="en">
       {/*
@@ -26,18 +22,18 @@ export default function RootLayout({
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="dark:bg-black">
-        <ToastContainer position="bottom-right" />
+      <Providers>
+        <body className="dark:bg-black">
+          <ToastContainer position="bottom-right" />
 
-        <Providers>
           {/*{pages.includes(pathname)&&<Header />}*/}
           <Header />
           {children}
           {/*{pages.includes(pathname)&&<Footer />}*/}
           <Footer />
           <ScrollToTop />
-        </Providers>
-      </body>
+        </body>
+      </Providers>
     </html>
   );
 }
