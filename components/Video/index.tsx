@@ -50,6 +50,7 @@ const Video = () => {
 
       <ModalVideo
         channel="youtube"
+        // @ts-ignore
         autoplay={true}
         start={true}
         isOpen={isOpen}

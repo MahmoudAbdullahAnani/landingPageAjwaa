@@ -48,7 +48,7 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
   }, []);
   const settings = {
     dots: true,
-    customPaging: function (i) {
+    customPaging: function () {
       return (
         <a className="">
           <span className="mx-2 block h-4 w-4 cursor-pointer rounded-l-full rounded-r-full transition-all "></span>
@@ -79,13 +79,14 @@ const OffiersSlides = ({ cartView }: { cartView: number }) => {
       },
     ],
   };
-  const [sliderRef, setSliderRef] = useState(null);
+  const [sliderRef, setSliderRef] = useState<Slider | null>(null);
 
   return (
     <>
       <Slider
         {...settings}
         arrows={false}
+        // @ts-ignore
         ref={setSliderRef}
         className="flex items-stretch justify-items-stretch"
       >

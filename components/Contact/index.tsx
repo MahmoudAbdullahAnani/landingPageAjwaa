@@ -7,9 +7,9 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
   const [name, setName] = useState("");
-  const nameRef = useRef(null);
-  const emailRef = useRef(null);
-  const msgRef = useRef(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const msgRef = useRef<HTMLInputElement>(null);
   const onSubmit = async (e: Event) => {
     e.preventDefault();
     if (name.length < 3) {

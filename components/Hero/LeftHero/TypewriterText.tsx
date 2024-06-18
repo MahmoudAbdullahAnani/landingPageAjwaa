@@ -2,7 +2,7 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 
-const TypewriterText = ({ textArray }) => {
+const TypewriterText = ({ textArray }:{textArray:string[]}) => {
   return (
     <span dir="rtl" className="text-yellow">
       <Typewriter

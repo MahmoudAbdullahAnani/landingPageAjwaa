@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 
 const NewsLatterBox = () => {
-  const nameRef = useRef(null);
-  const emailRef = useRef(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [borderName, setBorderName] = useState("117C99");
