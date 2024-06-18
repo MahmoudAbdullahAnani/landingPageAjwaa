@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 // Schema RestPassword
 const RestPasswordSchema = z.object({
-  email: z.string().email({ message: "البريد الالكتروني غير صحيح" })
+  email: z.string().email({ message: "البريد الالكتروني غير صحيح" }),
 });
 
 type Inputs = {
@@ -32,10 +32,8 @@ function FormRestPassword() {
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     email,
-
   }: {
     email: string;
-
   }) => {
     setIncorrectData([]);
     // console.log(data);
@@ -43,17 +41,20 @@ function FormRestPassword() {
     await axios
       .post(
         process.env.NEXT_PUBLIC_NODE_MODE === "development"
-          ? `${process.env.NEXT_PUBLIC_API_LOCAL}/signin`
-          : `${process.env.NEXT_PUBLIC_API_PRODUCTION}/signin`,
+          ? `${process.env.NEXT_PUBLIC_API_LOCAL}/resetPassword`
+          : `${process.env.NEXT_PUBLIC_API_PRODUCTION}/resetPassword`,
         {
           email,
-
         }
       )
-      .then((response: any) => {
-
+      .then((res: any) => {
+        console.log("====================================");
+        console.log(res);
+        console.log("====================================");
+      })
+      .catch((err) => {
+        console.log(err);
       });
-
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -82,7 +83,10 @@ function FormRestPassword() {
       </div>
 
       <div className="mb-6">
-        <button disabled={isSubmitting} className="flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
+        <button
+          disabled={isSubmitting}
+          className="flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+        >
           ارسال كود التغيير
         </button>
       </div>
