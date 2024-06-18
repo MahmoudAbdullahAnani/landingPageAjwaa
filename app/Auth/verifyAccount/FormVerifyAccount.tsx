@@ -31,14 +31,16 @@ export default function FormVerifyAccount() {
         )
         .then((response) => {
           setLoading(false);
-          window.sessionStorage.setItem(
-            "userIdDB",
-            response.data?.data._id || ""
-          );
-          window.sessionStorage.setItem(
-            "userData",
-            JSON.stringify(response.data?.data) || ""
-          );
+          if (typeof window !== "undefined") {
+            window.sessionStorage.setItem(
+              "userIdDB",
+              response.data?.data._id || ""
+            );
+            window.sessionStorage.setItem(
+              "userData",
+              JSON.stringify(response.data?.data) || ""
+            );
+          }
           return router.replace("/");
         })
         .catch(({ response }) => {

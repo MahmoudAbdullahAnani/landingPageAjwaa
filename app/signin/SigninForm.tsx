@@ -90,24 +90,26 @@ function SigninForm() {
             }
           );
         }
-        if (rememberMe) {
-          window.localStorage.setItem(
-            "userIdDB",
-            response.data?.data._id || ""
-          );
-          window.localStorage.setItem(
-            "userData",
-            JSON.stringify(response.data?.data) || ""
-          );
-        } else {
-          window.sessionStorage.setItem(
-            "userIdDB",
-            response.data?.data._id || ""
-          );
-          window.sessionStorage.setItem(
-            "userData",
-            JSON.stringify(response.data?.data) || ""
-          );
+        if (typeof window !== "undefined") {
+          if (rememberMe) {
+            window.localStorage.setItem(
+              "userIdDB",
+              response.data?.data._id || ""
+            );
+            window.localStorage.setItem(
+              "userData",
+              JSON.stringify(response.data?.data) || ""
+            );
+          } else {
+            window.sessionStorage.setItem(
+              "userIdDB",
+              response.data?.data._id || ""
+            );
+            window.sessionStorage.setItem(
+              "userData",
+              JSON.stringify(response.data?.data) || ""
+            );
+          }
         }
         return router.replace("/");
       });
