@@ -5,7 +5,7 @@ export const metadata = {
   title: "تأكيد الحساب || Ajwaa || أجواء ",
 };
 
-function page() {
+function VerifyAccount() {
   return (
     <section
       className="relative z-10 overflow-hidden pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28"
@@ -18,4 +18,4 @@ function page() {
   );
 }
 
-export default page;
+export default VerifyAccount;

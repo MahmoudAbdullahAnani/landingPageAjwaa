@@ -153,7 +153,9 @@ function SignUpForm() {
         </span>
       </div>
       <div className="mb-6">
-        <button className="flex w-full items-center justify-center rounded-md bg-primary py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
+        <button className={`flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out  ${
+            isSubmitting ? "bg-opacity-5" : "hover:bg-opacity-80"
+          } hover:shadow-signUp`}>
           تسجيل
         </button>
       </div>

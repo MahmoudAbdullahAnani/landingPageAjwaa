@@ -63,12 +63,12 @@ function FormRestPassword() {
             theme: "light",
           });
           return setTimeout(() => {
-            router.replace("/Auth/verifyPassword");
+            router.replace("/Auth/verifyPassword?email=" + email);
           }, 1000);
         }
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
         if (err.response.data.statusCode === 404) {
           return setIncorrectData([err.response.data.error as string]);
         }

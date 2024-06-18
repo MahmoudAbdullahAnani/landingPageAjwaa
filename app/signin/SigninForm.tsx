@@ -35,7 +35,7 @@ function SigninForm() {
     mode: "onChange",
   });
 
-  const [IncorrectData, setIncorrectData] = useState([]);
+  const [IncorrectData, setIncorrectData] = useState([""]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     email,
@@ -112,6 +112,14 @@ function SigninForm() {
           }
         }
         return router.replace("/");
+      })
+      .catch(({ response }) => {
+        // console.log("====================================");
+        // console.log(response.data);
+        // console.log("====================================");
+        if (response.data.statusCode === 400) {
+          setIncorrectData([response.data.message as string]);
+        }
       });
 
     reset({ password: "" });
@@ -192,7 +200,11 @@ function SigninForm() {
         </div>
       </div>
       <div className="mb-6">
-        <button className="flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
+        <button
+          className={`flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out  ${
+            isSubmitting ? "bg-opacity-5" : "hover:bg-opacity-80"
+          } hover:shadow-signUp`}
+        >
           تسجيل دخول
         </button>
       </div>

@@ -2,23 +2,19 @@
 import axios from "axios";
 import { useSearchParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-export default function FormVerifyAccount() {
+export default function FormVerifyPassword() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
-  const userName = searchParams.get("userName");
   useEffect(() => {
-    if (
-      email === null ||
-      (email === "" && userName === null) ||
-      userName === ""
-    )
-      return router.replace("/");
+    if (email === null || email === "") return router.replace("/");
   }, [email]);
   const [message, setMessage] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
+  const [IncorrectData, setIncorrectData] = useState([""]);
 
   const SendCode = async (code: string) => {
     setMessage("");
@@ -26,41 +22,54 @@ export default function FormVerifyAccount() {
     if (code.length === 6) {
       setLoading(true);
       await axios
-        .patch(
+        .post(
           process.env.NEXT_PUBLIC_NODE_MODE === "development"
-            ? `${process.env.NEXT_PUBLIC_API_LOCAL}/signup`
-            : `${process.env.NEXT_PUBLIC_API_PRODUCTION}/signup`,
+            ? `${process.env.NEXT_PUBLIC_API_LOCAL}/verifyCode`
+            : `${process.env.NEXT_PUBLIC_API_PRODUCTION}/verifyCode`,
           {
             email,
-            userName,
-            verificationAccountCode: code,
+            code,
           }
         )
-        .then((response) => {
+        .then((res) => {
+          //   console.log("====================================");
+          //   console.log(res);
+          //   console.log("====================================");
           setLoading(false);
-          if (typeof window !== "undefined") {
-            window.sessionStorage.setItem(
-              "userIdDB",
-              response.data?.data._id || ""
-            );
-            window.sessionStorage.setItem(
-              "userData",
-              JSON.stringify(response.data?.data) || ""
-            );
+          if (res.data.status === "success") {
+            toast.success(res.data.message, {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+            return setTimeout(() => {
+              router.replace("/Auth/updatePassword?email=" + email);
+            }, 1000);
           }
-          return router.replace("/");
         })
         .catch(({ response }) => {
+          //   console.log("====================================");
           console.log(response);
+          //     console.log("====================================");
           setLoading(false);
-          typeof response?.data?.message === "string"
-            ? setMessage(response.data.message as string)
-            : setMessage(response.data.message[0] as string);
+          if (response.data.statusCode === 500) {
+            return setIncorrectData([response.data.message as string]);
+          }
         });
     }
   };
   return (
     <form className={`max-w-lg mx-auto`}>
+      <ul className={`text-[#f07178]`}>
+        {IncorrectData.map((item, index) => (
+          <li key={`${index}-${Math.random()}`}>{item}</li>
+        ))}
+      </ul>
       <label
         htmlFor="name"
         className="mb-3 block text-lg font-medium text-dark dark:text-white"

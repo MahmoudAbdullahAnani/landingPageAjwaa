@@ -104,3 +104,65 @@ export const bgSignIn = () => (
     </defs>
   </svg>
 );
+export const iconShowPassword = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z"
+      stroke="#117C99"
+      strokeWidth="2"
+      strokeLinecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+      stroke="#117C99"
+      strokeWidth="2"
+      strokeLinecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+export const iconShowPasswordNot = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.88 9.87988C9.58526 10.1545 9.34885 10.4857 9.18488 10.8537C9.02091 11.2217 8.93274 11.619 8.92564 12.0218C8.91853 12.4246 8.99263 12.8247 9.14351 13.1983C9.2944 13.5718 9.51898 13.9112 9.80385 14.196C10.0887 14.4809 10.4281 14.7055 10.8016 14.8564C11.1752 15.0073 11.5753 15.0814 11.9781 15.0742C12.3809 15.0671 12.7782 14.979 13.1462 14.815C13.5142 14.651 13.8454 14.4146 14.12 14.1199"
+      stroke="#117C99"
+      strokeWidth="2"
+      strokeLinecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10.73 5.08C11.1513 5.02751 11.5754 5.00079 12 5C19 5 22 12 22 12C21.5529 12.9571 20.9922 13.8569 20.33 14.68"
+      stroke="#117C99"
+      strokeWidth="2"
+      strokeLinecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M6.61 6.61011C4.62125 7.96473 3.02987 9.82537 2 12.0001C2 12.0001 5 19.0001 12 19.0001C13.9159 19.0052 15.7908 18.4452 17.39 17.3901"
+      stroke="#117C99"
+      strokeWidth="2"
+      strokeLinecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M2 2L22 22"
+      stroke="#117C99"
+      strokeWidth="2"
+      strokeLinecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
