@@ -9,10 +9,10 @@ import { Menu } from "@/types/menu";
 import { PagesRoutes } from "../Common/ScrollUp";
 
 function handleLogout() {
-  localStorage.removeItem("userData");
-  localStorage.removeItem("userIdDB");
-  sessionStorage.removeItem("userData");
-  sessionStorage.removeItem("userIdDB");
+  window.localStorage.removeItem("userData");
+  window.localStorage.removeItem("userIdDB");
+  window.sessionStorage.removeItem("userData");
+  window.sessionStorage.removeItem("userIdDB");
   window.location.reload();
   return;
 }
@@ -39,7 +39,7 @@ const Header = () => {
   };
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
-    // localStorage.getItem('userData')? :
+    // window.localStorage.getItem('userData')? :
   });
 
   // submenu handler
@@ -191,40 +191,44 @@ const Header = () => {
                     }`}
                   />
                 </button>
-                {localStorage.getItem("userData") ||
-                sessionStorage.getItem("userData") ? (
+                {window.localStorage.getItem("userData") ||
+                window.sessionStorage.getItem("userData") ? (
                   <>
                     <h3 className={`text-white `}>
                       {
-                        JSON.parse(localStorage.getItem("userData") as string)
-                          ?.firstName
+                        JSON.parse(
+                          window.localStorage.getItem("userData") as string
+                        )?.firstName
                       }
                       {
-                        JSON.parse(sessionStorage.getItem("userData") as string)
-                          ?.firstName
+                        JSON.parse(
+                          window.sessionStorage.getItem("userData") as string
+                        )?.firstName
                       }
                       {` `}
                       {
-                        JSON.parse(localStorage.getItem("userData") as string)
-                          ?.lastName
+                        JSON.parse(
+                          window.localStorage.getItem("userData") as string
+                        )?.lastName
                       }
                       {
-                        JSON.parse(sessionStorage.getItem("userData") as string)
-                          ?.lastName
+                        JSON.parse(
+                          window.sessionStorage.getItem("userData") as string
+                        )?.lastName
                       }
                     </h3>
                     {JSON.parse(
-                      localStorage.getItem("userData") ||
-                        (sessionStorage.getItem("userData") as string)
+                      window.localStorage.getItem("userData") ||
+                        (window.sessionStorage.getItem("userData") as string)
                     )?.avatar && (
                       <Image
                         src={`https://${
                           JSON.parse(
-                            localStorage.getItem("userData") as string
+                            window.localStorage.getItem("userData") as string
                           )?.avatar.split("//")[1] || ""
                         }${
                           JSON.parse(
-                            sessionStorage.getItem("userData") as string
+                            window.sessionStorage.getItem("userData") as string
                           )?.avatar.split("//")[1] || ""
                         }`}
                         width={100}

@@ -31,8 +31,11 @@ export default function FormVerifyAccount() {
         )
         .then((response) => {
           setLoading(false);
-          sessionStorage.setItem("userIdDB", response.data?.data._id || "");
-          sessionStorage.setItem(
+          window.sessionStorage.setItem(
+            "userIdDB",
+            response.data?.data._id || ""
+          );
+          window.sessionStorage.setItem(
             "userData",
             JSON.stringify(response.data?.data) || ""
           );

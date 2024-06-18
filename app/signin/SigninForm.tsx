@@ -65,7 +65,7 @@ function SigninForm() {
           !response.data?.data.verificationAccountCode ||
           response.data?.data.verificationAccountCode !== "done"
         ) {
-          router.replace('/signup')
+          router.replace("/signup");
           toast.error("عليك تأكيد الحساب ", {
             position: "bottom-right",
             autoClose: 5000,
@@ -76,26 +76,35 @@ function SigninForm() {
             progress: undefined,
             theme: "light",
           });
-          return toast.error("اعد عملية التسجيل مرة اخري لكي يصلك كود التأكيد", {
-            position: "bottom-right",
-            autoClose: 8000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          return toast.error(
+            "اعد عملية التسجيل مرة اخري لكي يصلك كود التأكيد",
+            {
+              position: "bottom-right",
+              autoClose: 8000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            }
+          );
         }
         if (rememberMe) {
-          localStorage.setItem("userIdDB", response.data?.data._id || "");
-          localStorage.setItem(
+          window.localStorage.setItem(
+            "userIdDB",
+            response.data?.data._id || ""
+          );
+          window.localStorage.setItem(
             "userData",
             JSON.stringify(response.data?.data) || ""
           );
         } else {
-          sessionStorage.setItem("userIdDB", response.data?.data._id || "");
-          sessionStorage.setItem(
+          window.sessionStorage.setItem(
+            "userIdDB",
+            response.data?.data._id || ""
+          );
+          window.sessionStorage.setItem(
             "userData",
             JSON.stringify(response.data?.data) || ""
           );

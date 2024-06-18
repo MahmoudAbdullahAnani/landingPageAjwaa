@@ -95,7 +95,7 @@ const NewsLatterBox = () => {
           ref={emailRef}
           name="email"
           placeholder={"ادخل بريدك الالكتروني"}
-          className={`mb-4 w-full rounded-md border border-[#${borderEmail}] py-3 px-6 text-base font-medium text-[#000] placeholder-[#A3A3A3] shadow-one outline-none focus:border-[#2ABDE4] focus-visible:shadow-none dark:text-white  dark:text-white`}
+          className={`mb-4 w-full rounded-md border border-[#${borderEmail}] py-3 px-6 text-base font-medium text-[#000] placeholder-[#A3A3A3] shadow-one outline-none focus:border-[#2ABDE4] focus-visible:shadow-none   dark:text-white`}
         />
         <input
           type="submit"
